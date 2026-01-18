@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Japanese Grammar Search</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f9; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Japanese Conjugation Chart</h1>
+    <table id="grammarTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Yodan</th>
+                <th>Shimo-ichidan</th>
+                <th>Shimo-Nidan</th>
+                <th>Kami-Ichidan</th>
+                <th>Kami-Nidan</th>
+                <th>Rahen</th>
+                <th>Nahen</th>
+                <th>Kahen</th>
+                <th>Sahen</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // 1. Fetch the CSV file
+        Papa.parse("Verb Conj data.csv", {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                // 2. Initialize the DataTable with the CSV data
+                $('#grammarTable').DataTable({
+                    data: results.data,
+                    columns: [
+                        { data: "yodan" },
+                        { data: "shimo-ichidan" },
+                        { data: "shimo-nidan" },
+                        { data: "Kami-Ichidan" },
+                        { data: "Kami-Nidan" },
+                        { data: "Rahen" },
+                        { data: "Nahen" },
+                        { data: "Kahen" },
+                        { data: "Sahen" }
+                    ]
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // 1. Fetch the CSV file
+        Papa.parse("Adj conj data.csv", {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                // 2. Initialize the DataTable with the CSV data
+                $('#grammarTable').DataTable({
+                    data: results.data,
+                    columns: [
+                        { data: "Ku Adj" },
+                        { data: "Shiku Adj" },
+                        { data: "Nari Adj V" },
+                        { data: "Tari Adj V" }
+                    ]
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // 1. Fetch the CSV file
+        Papa.parse("aux verb conj data.csv", {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                // 2. Initialize the DataTable with the CSV data
+                $('#grammarTable').DataTable({
+                    data: results.data,
+                    columns: [
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "?" },
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "?" },
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "?" },
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "???" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "??" },
+                        { data: "???" },
+                        { data: "?" },
+                        { data: "??" },
+                        { data: "?" },
+                        { data: "?" }
+                    ]
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
